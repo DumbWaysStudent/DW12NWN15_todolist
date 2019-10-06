@@ -133,6 +133,5 @@ export default Styles = StyleSheet.create({
     // backgroundColor: "red",
     padding: 5,
     paddingHorizontal: 10,
-    marginHorizontal: 5,
   }
 })
