@@ -13,19 +13,19 @@ class TodoScreen extends Component {
       data: 
       [
         {
-          "activity": "Work"
+          activity: "Work"
         },
         {
-          "activity": "Sleep"
+          activity: "Sleep"
         },
         {
-          "activity": "Study"
+          activity: "Study"
         },
         {
-          "activity": "Run"
+          activity: "Run"
         },
         {
-          "activity": "Sleep"
+          activity: "Sleep"
         },
       ],
       inputText: "",
