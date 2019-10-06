@@ -33,7 +33,11 @@ class TodoScreen extends Component {
 
     return(
       <View style={Styles.container}>
-        <StatusBar barStyle="dark-content" backgroundColor={Colors.bgColor} />
+        <StatusBar barStyle="light-content" backgroundColor={Colors.primeDarkenColor} />
+        <View style={Styles.header}>
+          <Text style={Styles.title}>Mai Toodo</Text>
+        </View>
+        
         <View style={Styles.formGroup}>
           <View style={Styles.inputBox}>
             <TextInput style={Styles.input} placeholder="New todo" onChangeText={(text) => this._handleChangeText(text)} value={this.state.inputText} />

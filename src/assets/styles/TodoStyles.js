@@ -9,8 +9,24 @@ export default Styles = StyleSheet.create({
     minHeight: "100%",
     paddingBottom: "10.5%"
   },
-  text: {
-    fontSize: 24
+  header: {
+    backgroundColor: Colors.primeDarkenColor,
+    paddingHorizontal: 10,
+    paddingVertical: 15,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.20,
+    shadowRadius: 1.41,
+
+    elevation: 2,
+  },
+  title: {
+    fontSize: 20,
+    color: Colors.white,
+    textTransform: "uppercase"
   },
 
   // Form
