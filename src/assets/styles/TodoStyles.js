@@ -85,7 +85,18 @@ export default Styles = StyleSheet.create({
     flexDirection: "column-reverse",
     marginBottom: "10.5%",
     paddingHorizontal: 10
-
+  },
+  nothingBox: {
+    flex: 1, 
+    justifyContent: "center", 
+    alignItems: "center"
+  },
+  nothingIcon: {
+    marginBottom: 10
+  },
+  nothingText: {
+    fontSize: 18,
+    color: Colors.textColor
   },
   listItem: {
     paddingHorizontal: 15,
@@ -104,6 +115,14 @@ export default Styles = StyleSheet.create({
     shadowRadius: 1.00,
 
     elevation: 1,
+  },
+  checkBox: {
+    marginRight: 20
+  },
+  checkedText: {
+    textDecorationLine: "line-through", 
+    textDecorationColor: Colors.textColor, 
+    textDecorationStyle: "solid",
   },
   listText: {
     flex: 1,

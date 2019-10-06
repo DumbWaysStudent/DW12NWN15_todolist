@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { View, Text, FlatList, TextInput, TouchableOpacity, ToastAndroid, StatusBar, ScrollView } from "react-native"
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import { CheckBox } from "native-base"
+import Icon from "react-native-vector-icons/FontAwesome5"
+import MCom from "react-native-vector-icons/MaterialCommunityIcons"
 
 import Styles from "../assets/styles/TodoStyles"
 import Colors from "../assets/Colors"
@@ -12,21 +14,26 @@ class TodoScreen extends Component {
     this.state = {
       data: 
       [
-        {
-          activity: "Work"
-        },
-        {
-          activity: "Sleep"
-        },
-        {
-          activity: "Study"
-        },
-        {
-          activity: "Run"
-        },
-        {
-          activity: "Sleep"
-        },
+        // {
+        //   activity: "Work",
+        //   checked: false
+        // },
+        // {
+        //   activity: "Sleep",
+        //   checked: false
+        // },
+        // {
+        //   activity: "Study",
+        //   checked: false
+        // },
+        // {
+        //   activity: "Run",
+        //   checked: true
+        // },
+        // {
+        //   activity: "Sleep",
+        //   checked: false
+        // },
       ],
       inputText: "",
       generatedKey: 5
@@ -38,6 +45,14 @@ class TodoScreen extends Component {
     nData.splice(idx, 1)
     this.setState({
       data: nData
+    })
+  }
+
+  _handleCheckbox = idx => {
+    let nData = this.state.data
+    nData[idx].checked = !nData[idx].checked
+    this.setState({
+      data: nData 
     })
   }
   
@@ -60,18 +75,27 @@ class TodoScreen extends Component {
             <Text style={Styles.btnText}>Add</Text>
           </TouchableOpacity>
         </View>
+        {console.warn(data.length)}
         
-        <ScrollView contentContainerStyle={Styles.listContainer}>
-          {data.map((item, index) => {
-            return(
-              <View style={Styles.listItem} key={index}>
-                <Text style={Styles.listText}>{item.activity}</Text>
-                <TouchableOpacity style={Styles.actionBtn}>
-                  <Icon name="trash" size={18} color={Colors.textColor} onPress={() => this._handleRemove(index)} />
-                </TouchableOpacity>
-              </View>
-            )
-          })}
+        <ScrollView contentContainerStyle={[Styles.listContainer, data.length < 1 ? {flex: 1} : ""]}>
+          {data.length < 1 ? (
+            <View style={Styles.nothingBox}>
+              <MCom style={Styles.nothingIcon} name="sleep" size={65} color={Colors.textColor} />
+              <Text style={Styles.nothingText}>Whoops, you've nothing todo now..</Text>
+            </View>
+          ) : 
+            data.map((item, index) => {
+              return(
+                <View style={Styles.listItem} key={index}>
+                  <CheckBox checked={item.checked} style={Styles.checkBox} onPress={() => this._handleCheckbox(index)} />
+                  <Text style={[Styles.listText, item.checked ? Styles.checkedText : "" ]}>{item.activity}</Text>
+                  <TouchableOpacity style={Styles.actionBtn}>
+                    <Icon name="trash" size={18} color={Colors.textColor} onPress={() => this._handleRemove(index)} />
+                  </TouchableOpacity>
+                </View>
+              )
+            })
+          }
         </ScrollView>
       </View>
     )
