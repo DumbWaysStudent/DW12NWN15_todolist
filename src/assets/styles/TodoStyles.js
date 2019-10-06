@@ -105,6 +105,14 @@ export default Styles = StyleSheet.create({
 
     elevation: 1,
   },
+  checkBox: {
+    marginRight: 20
+  },
+  checkedText: {
+    textDecorationLine: "line-through", 
+    textDecorationColor: Colors.textColor, 
+    textDecorationStyle: "solid",
+  },
   listText: {
     flex: 1,
     fontSize: 18,

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { View, Text, FlatList, TextInput, TouchableOpacity, ToastAndroid, StatusBar, ScrollView } from "react-native"
+import { CheckBox } from "native-base"
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
 import Styles from "../assets/styles/TodoStyles"
@@ -13,19 +14,24 @@ class TodoScreen extends Component {
       data: 
       [
         {
-          activity: "Work"
+          activity: "Work",
+          checked: false
         },
         {
-          activity: "Sleep"
+          activity: "Sleep",
+          checked: false
         },
         {
-          activity: "Study"
+          activity: "Study",
+          checked: false
         },
         {
-          activity: "Run"
+          activity: "Run",
+          checked: true
         },
         {
-          activity: "Sleep"
+          activity: "Sleep",
+          checked: false
         },
       ],
       inputText: "",
@@ -34,11 +40,18 @@ class TodoScreen extends Component {
   }
 
   _handleRemove = idx => {
-    this.setState(state => {
-      const data = state.data.filter((data, i) => idx !== i)
-      return {
-        data
-      }
+    let nData = this.state.data
+    nData.splice(idx, 1)
+    this.setState({
+      data: nData
+    })
+  }
+
+  _handleCheckbox = idx => {
+    let nData = this.state.data
+    nData[idx].checked = !nData[idx].checked
+    this.setState({
+      data: nData 
     })
   }
   
@@ -66,7 +79,8 @@ class TodoScreen extends Component {
           {data.map((item, index) => {
             return(
               <View style={Styles.listItem} key={index}>
-                <Text style={Styles.listText}>{item.activity}</Text>
+                <CheckBox checked={item.checked} style={Styles.checkBox} onPress={() => this._handleCheckbox(index)} />
+                <Text style={[Styles.listText, item.checked ? Styles.checkedText : "" ]}>{item.activity}</Text>
                 <TouchableOpacity style={Styles.actionBtn}>
                   <Icon name="trash" size={18} color={Colors.textColor} onPress={() => this._handleRemove(index)} />
                 </TouchableOpacity>
