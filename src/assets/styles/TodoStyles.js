@@ -64,15 +64,26 @@ export default Styles = StyleSheet.create({
 
   // Lists
   listContainer: {
-    backgroundColor: "#ffffff",
     flexDirection: "column-reverse",
-    marginBottom: "10.5%"
+    marginBottom: "10.5%",
+    paddingHorizontal: 10
+
   },
   listItem: {
     paddingHorizontal: 15,
+    borderRadius: 4,
+    backgroundColor: "#ffffff",
+    marginBottom: 10,
     paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.grayColor
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.18,
+    shadowRadius: 1.00,
+
+    elevation: 1,
   },
   listText: {
     fontSize: 18,
