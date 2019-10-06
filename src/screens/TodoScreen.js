@@ -75,7 +75,6 @@ class TodoScreen extends Component {
             <Text style={Styles.btnText}>Add</Text>
           </TouchableOpacity>
         </View>
-        {console.warn(data.length)}
         
         <ScrollView contentContainerStyle={[Styles.listContainer, data.length < 1 ? {flex: 1} : ""]}>
           {data.length < 1 ? (
