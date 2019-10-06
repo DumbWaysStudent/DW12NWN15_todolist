@@ -10,8 +10,10 @@ export default Styles = StyleSheet.create({
     paddingBottom: "10.5%"
   },
   header: {
+    flexDirection: "row",
+    alignItems: "center",
     backgroundColor: Colors.primeDarkenColor,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     paddingVertical: 15,
     shadowColor: "#000",
     shadowOffset: {
@@ -20,11 +22,11 @@ export default Styles = StyleSheet.create({
     },
     shadowOpacity: 0.20,
     shadowRadius: 1.41,
-
     elevation: 2,
   },
   title: {
     fontSize: 20,
+    marginLeft: 10,
     color: Colors.white,
     textTransform: "uppercase"
   },
@@ -91,6 +93,8 @@ export default Styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     marginBottom: 10,
     paddingVertical: 10,
+    flexDirection: "row",
+    alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -102,7 +106,14 @@ export default Styles = StyleSheet.create({
     elevation: 1,
   },
   listText: {
+    flex: 1,
     fontSize: 18,
     color: Colors.textColor
+  },
+  actionBtn: {
+    // backgroundColor: "red",
+    padding: 5,
+    paddingHorizontal: 10,
+    marginHorizontal: 5,
   }
 })

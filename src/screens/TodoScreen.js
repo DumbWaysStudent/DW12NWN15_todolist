@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import { View, Text, FlatList, TextInput, TouchableOpacity, ToastAndroid, StatusBar } from "react-native"
+import { View, Text, FlatList, TextInput, TouchableOpacity, ToastAndroid, StatusBar, ScrollView } from "react-native"
+import Icon from 'react-native-vector-icons/FontAwesome5'
 
 import Styles from "../assets/styles/TodoStyles"
 import Colors from "../assets/Colors"
@@ -9,23 +10,36 @@ class TodoScreen extends Component {
     super();
 
     this.state = {
-      data: [
-        'work',
-        'swim',
-        'study',
-        'sleep',
-        'run',
+      data: 
+      [
+        {
+          "activity": "Work"
+        },
+        {
+          "activity": "Sleep"
+        },
+        {
+          "activity": "Study"
+        },
+        {
+          "activity": "Run"
+        },
+        {
+          "activity": "Sleep"
+        },
       ],
       inputText: "",
+      generatedKey: 5
     }
   }
 
-  _renderItem = ({item}) => {
-    return(
-      <View style={Styles.listItem}>
-        <Text style={Styles.listText}>{item}</Text>
-      </View>
-    )
+  _handleRemove = idx => {
+    this.setState(state => {
+      const data = state.data.filter((data, i) => idx !== i)
+      return {
+        data
+      }
+    })
   }
   
   render() {
@@ -35,6 +49,7 @@ class TodoScreen extends Component {
       <View style={Styles.container}>
         <StatusBar barStyle="light-content" backgroundColor={Colors.primeDarkenColor} />
         <View style={Styles.header}>
+          <Icon name="angellist" size={30} color={Colors.white} />
           <Text style={Styles.title}>Mai Toodo</Text>
         </View>
         
@@ -47,13 +62,18 @@ class TodoScreen extends Component {
           </TouchableOpacity>
         </View>
         
-        <FlatList 
-          data={data}
-          scrollEnabled={true}
-          renderItem={({item}) => this._renderItem({item})}
-          keyExtractor={(item, index) => index.toString()}
-          contentContainerStyle={Styles.listContainer}
-        />
+        <ScrollView contentContainerStyle={Styles.listContainer}>
+          {data.map((item, index) => {
+            return(
+              <View style={Styles.listItem} key={index}>
+                <Text style={Styles.listText}>{item.activity}</Text>
+                <TouchableOpacity style={Styles.actionBtn}>
+                  <Icon name="trash" size={18} color={Colors.textColor} onPress={() => this._handleRemove(index)} />
+                </TouchableOpacity>
+              </View>
+            )
+          })}
+        </ScrollView>
       </View>
     )
   }
@@ -74,7 +94,7 @@ class TodoScreen extends Component {
       )
       this.setState({inputText: ""})
     } else {
-      let nData = this.state.data.concat(this.state.inputText)
+      let nData = this.state.data.concat({activity: this.state.inputText})
       this.setState({data: nData})
       this.setState({inputText: ""})
     }
