@@ -34,11 +34,10 @@ class TodoScreen extends Component {
   }
 
   _handleRemove = idx => {
-    this.setState(state => {
-      const data = state.data.filter((data, i) => idx !== i)
-      return {
-        data
-      }
+    let nData = this.state.data
+    nData.splice(idx, 1)
+    this.setState({
+      data: nData
     })
   }
   
