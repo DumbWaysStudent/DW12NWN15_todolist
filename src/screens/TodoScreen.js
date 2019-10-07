@@ -66,8 +66,8 @@ class TodoScreen extends Component {
             return(
               <View style={Styles.listItem} key={index}>
                 <Text style={Styles.listText}>{item.activity}</Text>
-                <TouchableOpacity style={Styles.actionBtn}>
-                  <Icon name="trash" size={18} color={Colors.textColor} onPress={() => this._handleRemove(index)} />
+                <TouchableOpacity style={Styles.actionBtn} onPress={() => this._handleRemove(index)}>
+                  <Icon name="trash" size={18} color={Colors.textColor} />
                 </TouchableOpacity>
               </View>
             )
