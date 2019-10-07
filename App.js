@@ -18,6 +18,8 @@ class App extends Component {
         this.setState({isLoading: false})
       }, 2500)
     }
+
+    console.disableYellowBox = true
   }
 
   render() {
