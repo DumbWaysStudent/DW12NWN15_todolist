@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native"
 
-import Colors from "../Colors"
+import colors from "../colors"
 
 export default Styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.bgColor,
+    backgroundColor: colors.bgColor,
     minWidth: "100%",
     minHeight: "100%",
   },
