@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native"
-import Colors from "../Colors"
+import colors from "../colors"
 
-const Styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.primeDarkenColor,
+    backgroundColor: colors.primeDarkenColor,
     justifyContent: "center",
     alignItems: "center"
   },
@@ -12,7 +12,7 @@ const Styles = StyleSheet.create({
     alignItems: "center"
   },
   brandTitle: {
-    color: Colors.white,
+    color: colors.white,
     fontSize: 28,
     textTransform: "uppercase",
     letterSpacing: 4.5,
@@ -26,8 +26,8 @@ const Styles = StyleSheet.create({
     right: 0,
     fontSize: 18,
     textAlign: "center",
-    color: Colors.white
+    color: colors.white
   }
 })
 
-export default Styles
+export default styles

@@ -5,8 +5,8 @@ import * as Anima from "react-native-animatable"
 import Icon from "react-native-vector-icons/FontAwesome5"
 import MCom from "react-native-vector-icons/MaterialCommunityIcons"
 
-import Styles from "../assets/styles/TodoStyles"
-import Colors from "../assets/Colors"
+import styles from "../assets/styles/todoStyles"
+import colors from "../assets/colors"
 
 class TodoScreen extends Component {
   constructor() {
@@ -46,42 +46,42 @@ class TodoScreen extends Component {
     const { data, editMode } = this.state
 
     return(
-      <Anima.View style={Styles.container} animation="fadeInDown" duration={450}>
-        <StatusBar barStyle="light-content" backgroundColor={Colors.primeDarkenColor} />
-        <View style={Styles.header}>
-          <Icon name="angellist" size={30} color={Colors.white} />
-          <Text style={Styles.title}>Mai Toodo</Text>
+      <Anima.View style={styles.container} animation="fadeInDown" duration={450}>
+        <StatusBar barStyle="light-content" backgroundColor={colors.primeDarkenColor} />
+        <View style={styles.header}>
+          <Icon name="angellist" size={30} color={colors.white} />
+          <Text style={styles.title}>Mai Toodo</Text>
         </View>
         
-        <View style={Styles.formGroup}>
-          <View style={Styles.inputBox}>
-            <TextInput style={Styles.input} placeholder="New todo" onChangeText={(text) => this._handleChangeText(text)} value={this.state.inputText} />
+        <View style={styles.formGroup}>
+          <View style={styles.inputBox}>
+            <TextInput style={styles.input} placeholder="New todo" onChangeText={(text) => this._handleChangeText(text)} value={this.state.inputText} />
           </View>
-          <TouchableOpacity style={Styles.btn} onPress={this._handleAddBtn}>
-            <Text style={Styles.btnText}>{editMode ? "Update" : "Add"}</Text>
+          <TouchableOpacity style={styles.btn} onPress={this._handleAddBtn}>
+            <Text style={styles.btnText}>{editMode ? "Update" : "Add"}</Text>
           </TouchableOpacity>
         </View>
         
-        <ScrollView contentContainerStyle={[Styles.listContainer, data.length < 1 ? {flex: 1} : ""]}>
+        <ScrollView contentContainerStyle={[styles.listContainer, data.length < 1 ? {flex: 1} : ""]}>
           {data.length < 1 ? (
-            <Anima.View style={Styles.nothingBox} animation="bounceIn" duration={750}>
-              <MCom style={Styles.nothingIcon} name="sleep" size={65} color={Colors.textColor} />
-              <Text style={Styles.nothingText}>Whoops, you've nothing todo now..</Text>
+            <Anima.View style={styles.nothingBox} animation="bounceIn" duration={750}>
+              <MCom style={styles.nothingIcon} name="sleep" size={65} color={colors.textColor} />
+              <Text style={styles.nothingText}>Whoops, you've nothing todo now..</Text>
             </Anima.View>
           ) : 
             data.map((item, index) => {
               return(
-                <Anima.View style={Styles.listItem} key={index} animation="lightSpeedIn" duration={500}>
-                  <CheckBox checked={item.checked} style={Styles.checkBox} onPress={() => this._handleCheckbox(index)} />
-                  <Text style={[Styles.listText, item.checked ? Styles.checkedText : "" ]}>{item.activity}</Text>
+                <Anima.View style={styles.listItem} key={index} animation="lightSpeedIn" duration={500}>
+                  <CheckBox checked={item.checked} style={styles.checkBox} onPress={() => this._handleCheckbox(index)} />
+                  <Text style={[styles.listText, item.checked ? styles.checkedText : "" ]}>{item.activity}</Text>
                   <TouchableWithoutFeedback onPress={() => this._handleEdit(index)}>
-                    <View style={Styles.actionBtn}>
-                      <Icon name="pencil-alt" size={18} color={Colors.textColor} />
+                    <View style={styles.actionBtn}>
+                      <Icon name="pencil-alt" size={18} color={colors.textColor} />
                     </View>
                   </TouchableWithoutFeedback>
                   <TouchableWithoutFeedback onPress={() => this._handleRemove(index)}>
-                    <View style={Styles.actionBtn}>
-                      <Icon name="trash" size={18} color={Colors.textColor} />
+                    <View style={styles.actionBtn}>
+                      <Icon name="trash" size={18} color={colors.textColor} />
                     </View>
                   </TouchableWithoutFeedback>
                 </Anima.View>

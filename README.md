@@ -30,5 +30,5 @@ and it'll merged soon to be fixed.. so that warning are not harming, just ignore
 till it updated :D.
 
 ## Changelog
-- [x] Adding SplashScreen
+- [x] Adding splashScreen
 - [x] Create a nice looking animation

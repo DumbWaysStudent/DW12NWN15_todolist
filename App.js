@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 
 // Imported screens
-import Todo from "./src/screens/TodoScreen"
-import Splash from "./src/screens/SplashScreen"
+import TodoScreen from "./src/screens/TodoScreen"
+import SplashScreen from "./src/screens/SplashScreen"
 
 class App extends Component {
   constructor() {
@@ -26,12 +26,12 @@ class App extends Component {
     const { isLoading } = this.state
     if(isLoading) {
       return(
-        <Splash />
+        <SplashScreen />
       )
     }
 
     return(
-      <Todo />
+      <TodoScreen />
     )
   }
 }
