@@ -42,11 +42,21 @@ class TodoScreen extends Component {
   }
 
   _handleRemove = idx => {
-    let nData = this.state.data
-    nData.splice(idx, 1)
-    this.setState({
-      data: nData
-    })
+    if(this.state.editMode) {
+      ToastAndroid.showWithGravityAndOffset(
+        "You can't delete any item in edit mode :(",
+        ToastAndroid.LONG,
+        ToastAndroid.BOTTOM,
+        25,
+        50,
+      )
+    } else {
+      let nData = this.state.data
+      nData.splice(idx, 1)
+      this.setState({
+        data: nData
+      })
+    }
   }
 
   _handleCheckbox = idx => {
@@ -107,6 +117,7 @@ class TodoScreen extends Component {
             })
           }
         </ScrollView>
+
       </View>
     )
   }
