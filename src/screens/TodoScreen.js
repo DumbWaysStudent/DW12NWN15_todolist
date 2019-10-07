@@ -13,6 +13,51 @@ class TodoScreen extends Component {
       data: 
       [
         {
+          activity: "Workaaaa"
+        },
+        {
+          activity: "Sleep"
+        },
+        {
+          activity: "Study"
+        },
+        {
+          activity: "Run"
+        },
+        {
+          activity: "Sleep"
+        },
+        {
+          activity: "Work"
+        },
+        {
+          activity: "Sleep"
+        },
+        {
+          activity: "Study"
+        },
+        {
+          activity: "Run"
+        },
+        {
+          activity: "Sleep"
+        },
+        {
+          activity: "Work"
+        },
+        {
+          activity: "Sleep"
+        },
+        {
+          activity: "Study"
+        },
+        {
+          activity: "Run"
+        },
+        {
+          activity: "Sleep"
+        },
+        {
           activity: "Work"
         },
         {
