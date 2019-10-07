@@ -16,7 +16,7 @@ class App extends Component {
     if(this.state.isLoading) {
       setTimeout(() => {
         this.setState({isLoading: false})
-      }, 3500)
+      }, 2500)
     }
   }
 
