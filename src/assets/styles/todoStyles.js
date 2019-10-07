@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native"
 
-import Colors from "../Colors"
+import colors from "../colors"
 
-export default Styles = StyleSheet.create({
+export default styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.bgColor,
+    backgroundColor: colors.bgColor,
     minWidth: "100%",
     minHeight: "100%",
     paddingBottom: "10.5%"
@@ -12,7 +12,7 @@ export default Styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: Colors.primeDarkenColor,
+    backgroundColor: colors.primeDarkenColor,
     paddingHorizontal: 20,
     paddingVertical: 15,
     shadowColor: "#000",
@@ -27,7 +27,7 @@ export default Styles = StyleSheet.create({
   title: {
     fontSize: 20,
     marginLeft: 10,
-    color: Colors.white,
+    color: colors.white,
     textTransform: "uppercase"
   },
 
@@ -56,11 +56,11 @@ export default Styles = StyleSheet.create({
   input: {
     fontSize: 16,
     fontFamily: "sans",
-    color: Colors.primeColor
+    color: colors.primeColor
   },
   btn: {
     flex: 1,
-    backgroundColor: Colors.primeColor,
+    backgroundColor: colors.primeColor,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 4,
@@ -110,13 +110,13 @@ export default Styles = StyleSheet.create({
   },
   checkedText: {
     textDecorationLine: "line-through", 
-    textDecorationColor: Colors.textColor, 
+    textDecorationColor: colors.textColor, 
     textDecorationStyle: "solid",
   },
   listText: {
     flex: 1,
     fontSize: 18,
-    color: Colors.textColor
+    color: colors.textColor
   },
   actionBtn: {
     // backgroundColor: "red",
