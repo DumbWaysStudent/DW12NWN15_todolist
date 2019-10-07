@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native"
 
-import Colors from "../Colors"
+import colors from "../colors"
 
-export default Styles = StyleSheet.create({
+export default styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.bgColor,
+    backgroundColor: colors.bgColor,
     minWidth: "100%",
     minHeight: "100%",
     paddingBottom: "10.5%"
@@ -38,11 +38,11 @@ export default Styles = StyleSheet.create({
   input: {
     fontSize: 16,
     fontFamily: "sans",
-    color: Colors.primeColor
+    color: colors.primeColor
   },
   btn: {
     flex: 1,
-    backgroundColor: Colors.primeColor,
+    backgroundColor: colors.primeColor,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 4,
@@ -87,6 +87,6 @@ export default Styles = StyleSheet.create({
   },
   listText: {
     fontSize: 18,
-    color: Colors.textColor
+    color: colors.textColor
   }
 })

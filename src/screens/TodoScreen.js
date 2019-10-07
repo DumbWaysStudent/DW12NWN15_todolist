@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import { View, Text, FlatList, TextInput, TouchableOpacity, ToastAndroid, StatusBar } from "react-native"
 
-import Styles from "../assets/styles/TodoStyles"
-import Colors from "../assets/Colors"
+import styles from "../assets/styles/todoStyles"
+import colors from "../assets/colors"
 
 class TodoScreen extends Component {
   constructor() {
@@ -22,8 +22,8 @@ class TodoScreen extends Component {
 
   _renderItem = ({item}) => {
     return(
-      <View style={Styles.listItem}>
-        <Text style={Styles.listText}>{item}</Text>
+      <View style={styles.listItem}>
+        <Text style={styles.listText}>{item}</Text>
       </View>
     )
   }
@@ -32,14 +32,14 @@ class TodoScreen extends Component {
     const { data } = this.state
 
     return(
-      <View style={Styles.container}>
-        <StatusBar barStyle="dark-content" backgroundColor={Colors.bgColor} />
-        <View style={Styles.formGroup}>
-          <View style={Styles.inputBox}>
-            <TextInput style={Styles.input} placeholder="New todo" onChangeText={(text) => this._handleChangeText(text)} value={this.state.inputText} />
+      <View style={styles.container}>
+        <StatusBar barStyle="dark-content" backgroundColor={colors.bgColor} />
+        <View style={styles.formGroup}>
+          <View style={styles.inputBox}>
+            <TextInput style={styles.input} placeholder="New todo" onChangeText={(text) => this._handleChangeText(text)} value={this.state.inputText} />
           </View>
-          <TouchableOpacity style={Styles.btn} onPress={this._handleAddBtn}>
-            <Text style={Styles.btnText}>Add</Text>
+          <TouchableOpacity style={styles.btn} onPress={this._handleAddBtn}>
+            <Text style={styles.btnText}>Add</Text>
           </TouchableOpacity>
         </View>
         
@@ -48,7 +48,7 @@ class TodoScreen extends Component {
           scrollEnabled={true}
           renderItem={({item}) => this._renderItem({item})}
           keyExtractor={(item, index) => index.toString()}
-          contentContainerStyle={Styles.listContainer}
+          contentContainerStyle={styles.listContainer}
         />
       </View>
     )
