@@ -1,9 +1,9 @@
 import React, { Component } from "react"
-import { View, Text, FlatList, TextInput, TouchableOpacity, ToastAndroid, StatusBar, ScrollView } from "react-native"
+import { View, Text, FlatList, TextInput, TouchableOpacity, TouchableWithoutFeedback, ToastAndroid, StatusBar, ScrollView } from "react-native"
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
-import Styles from "../assets/styles/TodoStyles"
-import Colors from "../assets/Colors"
+import styles from "../assets/styles/todoStyles"
+import colors from "../assets/colors"
 
 class TodoScreen extends Component {
   constructor() {
@@ -45,30 +45,32 @@ class TodoScreen extends Component {
     const { data } = this.state
 
     return(
-      <View style={Styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor={Colors.primeDarkenColor} />
-        <View style={Styles.header}>
-          <Icon name="angellist" size={30} color={Colors.white} />
-          <Text style={Styles.title}>Mai Toodo</Text>
+      <View style={styles.container}>
+        <StatusBar barStyle="light-content" backgroundColor={colors.primeDarkenColor} />
+        <View style={styles.header}>
+          <Icon name="angellist" size={30} color={colors.white} />
+          <Text style={styles.title}>Mai Toodo</Text>
         </View>
         
-        <View style={Styles.formGroup}>
-          <View style={Styles.inputBox}>
-            <TextInput style={Styles.input} placeholder="New todo" onChangeText={(text) => this._handleChangeText(text)} value={this.state.inputText} />
+        <View style={styles.formGroup}>
+          <View style={styles.inputBox}>
+            <TextInput style={styles.input} placeholder="New todo" onChangeText={(text) => this._handleChangeText(text)} value={this.state.inputText} />
           </View>
-          <TouchableOpacity style={Styles.btn} onPress={this._handleAddBtn}>
-            <Text style={Styles.btnText}>Add</Text>
+          <TouchableOpacity style={styles.btn} onPress={this._handleAddBtn}>
+            <Text style={styles.btnText}>Add</Text>
           </TouchableOpacity>
         </View>
         
-        <ScrollView contentContainerStyle={Styles.listContainer}>
+        <ScrollView contentContainerStyle={styles.listContainer}>
           {data.map((item, index) => {
             return(
-              <View style={Styles.listItem} key={index}>
-                <Text style={Styles.listText}>{item.activity}</Text>
-                <TouchableOpacity style={Styles.actionBtn} onPress={() => this._handleRemove(index)}>
-                  <Icon name="trash" size={18} color={Colors.textColor} />
-                </TouchableOpacity>
+              <View style={styles.listItem} key={index}>
+                <Text style={styles.listText}>{item.activity}</Text>
+                <TouchableWithoutFeedback onPress={() => this._handleRemove(index)}>
+                  <View style={styles.actionBtn} >
+                    <Icon name="trash" size={18} color={colors.textColor} />
+                  </View>
+                </TouchableWithoutFeedback>
               </View>
             )
           })}
