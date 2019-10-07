@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { View, Text, TextInput, TouchableOpacity, ToastAndroid, StatusBar, ScrollView } from "react-native"
+import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, ToastAndroid, StatusBar, ScrollView } from "react-native"
 import { CheckBox } from "native-base"
 import * as Anima from "react-native-animatable"
 import Icon from "react-native-vector-icons/FontAwesome5"
@@ -74,12 +74,16 @@ class TodoScreen extends Component {
                 <Anima.View style={Styles.listItem} key={index} animation="lightSpeedIn" duration={500}>
                   <CheckBox checked={item.checked} style={Styles.checkBox} onPress={() => this._handleCheckbox(index)} />
                   <Text style={[Styles.listText, item.checked ? Styles.checkedText : "" ]}>{item.activity}</Text>
-                  <TouchableOpacity style={Styles.actionBtn}>
-                    <Icon name="pencil-alt" size={18} color={Colors.textColor} onPress={() => this._handleEdit(index)} />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={Styles.actionBtn}>
-                    <Icon name="trash" size={18} color={Colors.textColor} onPress={() => this._handleRemove(index)} />
-                  </TouchableOpacity>
+                  <TouchableWithoutFeedback onPress={() => this._handleEdit(index)}>
+                    <View style={Styles.actionBtn}>
+                      <Icon name="pencil-alt" size={18} color={Colors.textColor} />
+                    </View>
+                  </TouchableWithoutFeedback>
+                  <TouchableWithoutFeedback onPress={() => this._handleRemove(index)}>
+                    <View style={Styles.actionBtn}>
+                      <Icon name="trash" size={18} color={Colors.textColor} />
+                    </View>
+                  </TouchableWithoutFeedback>
                 </Anima.View>
               )
             })
