@@ -10,6 +10,21 @@ class TodoScreen extends Component {
 
     this.state = {
       data: [
+        'workaaa',
+        'swim',
+        'study',
+        'sleep',
+        'run',
+        'work',
+        'swim',
+        'study',
+        'sleep',
+        'run',
+        'work',
+        'swim',
+        'study',
+        'sleep',
+        'run',
         'work',
         'swim',
         'study',

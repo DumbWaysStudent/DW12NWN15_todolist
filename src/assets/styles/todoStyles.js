@@ -65,7 +65,7 @@ export default styles = StyleSheet.create({
   // Lists
   listContainer: {
     flexDirection: "column-reverse",
-    marginBottom: "10.5%",
+    paddingBottom: "3%",
     paddingHorizontal: 10
 
   },
