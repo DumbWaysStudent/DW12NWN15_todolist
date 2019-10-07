@@ -23,3 +23,12 @@ you can also run it with `yarn dev` if you want run it using the same network me
 - Checked if it done
 - Delete todo
 - Change todo
+
+## Notes
+There may some warning on console when you run this source, that's are come from a library
+and it'll merged soon to be fixed.. so that warning are not harming, just ignore it and be patient 
+till it updated :D.
+
+## Changelog
+- [x] Adding SplashScreen
+- [x] Create a nice looking animation
